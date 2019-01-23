@@ -5,6 +5,7 @@ const browserSync = require('browser-sync');
 const del = require('del');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
+const webpack = require('webpack-stream');
 const { argv } = require('yargs');
 
 const $ = gulpLoadPlugins();
@@ -27,11 +28,34 @@ function styles() {
     .pipe(server.reload({stream: true}));
 };
 
+const webpackConfig = {
+  // setting output file to have input file's [name]
+  output: {
+    filename: '[name].js',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
+    ]
+  },
+  // setting webpack mode
+  mode: 'development'
+}
+
 function scripts() {
-  return src('app/scripts/**/*.js')
+  return src('app/scripts/main.js')
     .pipe($.plumber())
     .pipe($.if(!isProd, $.sourcemaps.init()))
-    .pipe($.babel())
+    .pipe(webpack(webpackConfig))
     .pipe($.if(!isProd, $.sourcemaps.write('.')))
     .pipe(dest('.tmp/scripts'))
     .pipe(server.reload({stream: true}));
