@@ -18,19 +18,30 @@
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <header></header>
-    <aside>
-      <nav></nav>
+    <!-- Side menu:start -->
+    <aside class="side-menu">
     </aside>
-    <main>
-      <!-- <section class="dashboard dashboard-js"></section> -->
-      <section class="calendar calendar-js">
-        <div id="calendar"></div>
-      </section>
-      <section class="clients clients-js">
-        <div id="clients"></div>
-      </section>
-    </main>
+    <!-- Side menu:end -->
+
+    <div class="page-wrapper">
+
+      <!-- Side menu:start -->
+      <header class="header">
+        <nav class="nav"></nav>
+      </header>
+
+      <!-- Side menu:start -->
+      <main class="main">
+        <!-- <div class="dashboard dashboard-js"></div> -->
+        <div class="view calendar calendar-js">
+          <div id="calendar"></div>
+        </div>
+        <div class="view clients clients-js">
+          <table id="clients"></table>
+        </div>
+      </main>
+
+    </div>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

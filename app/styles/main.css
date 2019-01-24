@@ -1,29 +1,98 @@
-.browserupgrade {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
+/******************************
+************Globals************
+******************************/
+
+html {
+  box-sizing: border-box;
+  position: relative;
+  min-height: 100%;
+}
+
+/* Inherting border-box from html */
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
 }
 
 body {
-  background: #fafafa;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #333;
+	font-size: 16px;
+  overflow-x: hidden;
+  height: 100%;
+  display: flex;
 }
 
-.hero-unit {
-  margin: 50px auto 0 auto;
-  width: 300px;
-  font-size: 18px;
-  font-weight: 200;
-  line-height: 30px;
-  background-color: #eee;
-  border-radius: 6px;
-  padding: 60px;
+img {
+	max-width: 100%;
 }
 
-.hero-unit h1 {
-  font-size: 60px;
-  line-height: 1;
-  letter-spacing: -1px;
+p {
+	line-height: 1.4em;
+}
+
+h2{
+	margin-bottom: .5em;
+}
+
+h3 {
+	margin-top: .5em;
+}
+
+a,
+a:visited,
+a:active {
+	text-decoration: none;
+}
+
+nav,
+header,
+main,
+footer,
+ul {
+	width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-transform: uppercase;
+}
+
+
+
+/******************************
+************Skeleton***********
+******************************/
+
+.side-menu {
+  max-width: 250px;
+  width: 20%;
+  background-color: blue;
+}
+
+.side-menu,
+.page-wrapper {
+  height: 100vh;
+}
+
+.page-wrapper {
+  overflow: hidden;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  width: 100%;
+  background-color: aqua;
+  height: 60px;
+}
+
+.main {
+  flex-grow: 1;
+  height: 100%;
 }
