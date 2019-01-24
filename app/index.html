@@ -7,11 +7,13 @@
     <title>Insijam IT</title>
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
+
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/b-1.5.4/r-2.2.2/datatables.min.css"/>
      <!-- endbuild -->
 
+    <link href="https://file.myfontastic.com/2koZ5YocvXrPiyZyVF3WyN/icons.css" rel="stylesheet">
 
   </head>
   <body>
@@ -20,18 +22,41 @@
     <![endif]-->
 
     <!-- Side menu:start -->
-    <aside class="side-menu">
+    <aside class="side-menu side-menu-js shrunken">
+      <div class="brand">
+        <img class="brand-logo" src="images/logo.svg" alt="">
+        <h1 class="brand-name">Elmadeal</h1>
+      </div>
+      <ul class="side-menu-list">
+        <li class="menu-item disabled">
+          <span class="icon icon-dashboard-speed-streamline"></span>
+          <span class="menu-item-name">Dashboard</span>
+        </li>
+        <li class="menu-item active">
+          <span class="icon icon-calendar"></span>
+          <span class="menu-item-name">Calendar</span>
+        </li>
+        <li class="menu-item">
+          <span class="icon icon-users-outline"></span>
+          <span class="menu-item-name">Clients</span>
+        </li>
+      </ul>
     </aside>
     <!-- Side menu:end -->
 
     <div class="page-wrapper">
 
-      <!-- Side menu:start -->
+      <!-- Header:start -->
       <header class="header">
-        <nav class="nav"></nav>
+        <nav class="nav">
+          <button class="hamburger hamburger-js">
+            <span class="icon icon-menu"></span>
+          </button>
+        </nav>
       </header>
+      <!-- Header:end -->
 
-      <!-- Side menu:start -->
+      <!-- Main:start -->
       <main class="main">
         <!-- <div class="dashboard dashboard-js"></div> -->
         <div class="view calendar calendar-js">
@@ -41,6 +66,7 @@
           <table id="clients"></table>
         </div>
       </main>
+      <!-- Main:end -->
 
     </div>
 

@@ -1,3 +1,11 @@
+:root {
+  --primary-color: #183755;
+  --primary-color-dark-1: #0E1E2F;
+  --primary-color-light-1: #2D4964;
+  --text-color: #111;
+  --text-color-invert: #fff;
+}
+
 /******************************
 ************Globals************
 ******************************/
@@ -69,9 +77,9 @@ h4 {
 ******************************/
 
 .side-menu {
-  max-width: 250px;
+  max-width: 200px;
   width: 20%;
-  background-color: blue;
+  background-color: var(--primary-color);
 }
 
 .side-menu,
@@ -88,11 +96,145 @@ h4 {
 
 .header {
   width: 100%;
-  background-color: aqua;
   height: 60px;
 }
 
 .main {
   flex-grow: 1;
   height: 100%;
+}
+
+/*****************
+    Side Menu
+*****************/
+
+.side-menu {
+  display: flex;
+  flex-direction: column;
+  color: var(--text-color-invert);
+  font-family: sans-serif;
+}
+
+.side-menu .brand
+.side-menu-list {
+  width: 100%;
+}
+
+.side-menu .brand {
+  text-align: center;
+  border-bottom: 1px solid var(--primary-color-light-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+}
+
+.side-menu .brand-logo {
+  display: none;
+  height: 45px;
+  margin: 0 auto;
+}
+
+.side-menu .brand-name {
+  margin: 0;
+}
+
+.side-menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 16px 0 16px 8px;
+}
+
+.side-menu .menu-item {
+  padding: 14px 0 14px 16px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.3s ease,
+              color 0.3s ease;
+  background-color: var(--primary-color-light-1);
+  margin-bottom: 8px;
+  border-radius: 3px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  display: flex;
+  align-items: center;
+}
+
+.side-menu .menu-item:hover,
+.side-menu .menu-item:focus,
+.side-menu .menu-item.active {
+  background-color: var(--text-color-invert);
+  color: var(--primary-color);
+}
+
+.side-menu .menu-item.disabled {
+  background-color: var(--primary-color-light-1);
+  cursor: unset;
+  color: grey;
+}
+
+.menu-item .menu-item-name {
+  margin-left: 14px;
+  overflow: hidden;
+}
+
+.menu-item .icon {
+  display: flex;
+  flex-flow: row wrap;
+  float: left;
+  font-size: 1.1em;
+}
+
+/* closed state*/
+/*
+.side-menu.shrunken .brand {
+  padding: 16px 0;
+} */
+
+.side-menu.shrunken {
+  width: 90px;
+}
+
+.side-menu.shrunken .side-menu-list {
+  padding: 16px;
+}
+
+.side-menu.shrunken .menu-item {
+  padding: 14px;
+  border-radius: 3px;
+  justify-content: center;
+  font-size: 1.4em;
+}
+
+
+.side-menu.shrunken .brand-name,
+.side-menu.shrunken .menu-item-name {
+  display: none;
+}
+
+.side-menu.shrunken .brand-logo {
+  display: block;
+}
+
+.side-menu,
+.side-menu .brand,
+.side-menu .menu-item,
+.side-menu .side-menu-list {
+  transition: all 0.3s ease;
+}
+
+/******************************
+***********Hamburger***********
+******************************/
+
+.hamburger {
+  background: none;
+  border: none;
+  font-size: 2.5em;
+  cursor: pointer;
+  outline: none;
+}
+
+.hamburger .icon {
+  display: flex;
 }
