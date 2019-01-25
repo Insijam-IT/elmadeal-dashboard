@@ -1,22 +1,6 @@
-class App {
-  constructor() {
-    this.sideMenuToggleButton = document.querySelector('.hamburger-js');
-    this.sideMenu = document.querySelector('.side-menu-js')
-  }
+import App from './app';
 
-  toggleSideMenu() {
-    this.sideMenuToggleButton.addEventListener('click', () => {
-      this.sideMenu.classList.toggle('shrunken');
-    });
-  }
-
-  init() {
-    this.toggleSideMenu();
-  }
-}
-
-
-window.addEventListener('DOMContentLoaded', () => {
+$(document).ready(() => {
   const app = new App();
   app.init();
 });

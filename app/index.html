@@ -10,11 +10,14 @@
 
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.print.css">
+
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/b-1.5.4/r-2.2.2/datatables.min.css"/>
-     <!-- endbuild -->
-
-    <link href="https://file.myfontastic.com/2koZ5YocvXrPiyZyVF3WyN/icons.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.semanticui.min.css">
   </head>
   <body>
     <!--[if IE]>
@@ -29,15 +32,15 @@
       </div>
       <ul class="side-menu-list">
         <li class="menu-item disabled">
-          <span class="icon icon-dashboard-speed-streamline"></span>
+          <i class="chart bar outline icon"></i>
           <span class="menu-item-name">Dashboard</span>
         </li>
         <li class="menu-item active">
-          <span class="icon icon-calendar"></span>
+          <i class="calendar outline icon"></i>
           <span class="menu-item-name">Calendar</span>
         </li>
         <li class="menu-item">
-          <span class="icon icon-users-outline"></span>
+          <i class="user outline icon"></i>
           <span class="menu-item-name">Clients</span>
         </li>
       </ul>
@@ -48,27 +51,54 @@
 
       <!-- Header:start -->
       <header class="header">
+
+        <!-- Navigation:start -->
         <nav class="nav">
+
           <button class="hamburger hamburger-js">
-            <span class="icon icon-menu"></span>
+            <i class="align left icon"></i>
           </button>
+
+          <div class="dropdown-local">
+            <button class="btn dropdown-btn dropdown-btn-js">
+              Salon 1
+            </button>
+            <div class="dropdown-menu dropdown-menu-js">
+              <span class="dropdown-banner">Welcome</span>
+              <a class="dropdown-menu-link"ref="#">Link 1</a>
+              <a class="dropdown-menu-link"ref="#">Link 2</a>
+              <a class="dropdown-menu-link dropdown-last-menu-link"ref="#">logout</a>
+            </div>
+          </div>
         </nav>
+        <!-- Navigation:end -->
       </header>
       <!-- Header:end -->
 
       <!-- Main:start -->
       <main class="main">
-        <!-- <div class="dashboard dashboard-js"></div> -->
-        <div class="view calendar calendar-js">
-          <div id="calendar"></div>
+
+        <!-- Calendar View:Start -->
+        <div class="view calendar calendar-js visible">
+          <div class="view--box">
+            <div id="calendar"></div>
+          </div>
         </div>
+        <!-- Calendar View:end -->
+
+        <!-- clients View:Start -->
         <div class="view clients clients-js">
-          <table id="clients"></table>
+            <div class="view--box">
+              <table id="clients" class="ui celled table" width="100%"></table>
+            </div>
         </div>
+        <!-- Clients View:end -->
+
       </main>
       <!-- Main:end -->
 
     </div>
+    <!-- Page Container:end -->
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
@@ -82,12 +112,18 @@
     </script>
 
     <!-- build:js scripts/vendor.js -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="  crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/b-1.5.4/r-2.2.2/datatables.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.semanticui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+
     <!-- endbuild -->
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
-    <script src="scripts/clients.js"></script>
     <!-- endbuild -->
   </body>
 </html>
