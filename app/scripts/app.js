@@ -5,11 +5,15 @@ class App {
     // clients
     this.$clientsView = $('.view.clients');
     this.$clientsTableContainer = $('#clients');
+    this.$clientsViewButton = $('#view-btn-clients');
     // calendar
     this.$calendarView = $('.view.calendar');
     this.$calendarContainer = $('#calendar');
+    this.$calendarViewButton = $('#view-btn-calendar');
 
-    this.isCalendarInitialView = false;
+    this.$allViewButtons =  $('.menu-item');
+
+    this.$currentView = this.$calendarView;
   }
 
   /**
@@ -53,6 +57,46 @@ class App {
     });
   }
 
+
+  _handleViewSwitch($targetButton, $toShowView, callback) {
+
+    $targetButton.on('click', () => {
+      if($toShowView.hasClass('visible')) {
+        return;
+      }
+      $targetButton.addClass('active');
+      this.$currentView.removeClass('visible');
+      this.$allViewButtons.each((i, viewBtn) => {
+        // if button is not disabled
+        if(!$(viewBtn).hasClass('disabled')) {
+          $(viewBtn).removeClass('active');
+        }
+      });
+
+      $targetButton.addClass('active');
+      $toShowView.addClass('visible');
+      this.$currentView = $toShowView;
+
+      if(callback) callback();
+    });
+  }
+
+  /**
+   * Swtiches between page views (Dashboard, clients, ...)
+   */
+  switchViews() {
+    // handler calendar view button click
+    this._handleViewSwitch(
+      this.$calendarViewButton,
+      this.$calendarView
+    );
+    // handler clients view button click
+    this._handleViewSwitch(
+      this.$clientsViewButton,
+      this.$clientsView
+    );
+  }
+
   /**
    * Initializes clients datatable
    */
@@ -82,8 +126,9 @@ class App {
   init() {
     this.toggleSideMenu();
     this.toggleDropdownMenu();
-    this.initializeClientsTable();
+    this.switchViews();
     this.initializeCalendar();
+    this.initializeClientsTable();
   }
 }
 

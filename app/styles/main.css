@@ -1,5 +1,7 @@
 :root {
-  /* Colors */
+  /*
+  * Colors
+  */
   --primary-color: #183755;
   --primary-color-dark-1: #0E1E2F;
   --primary-color-light-1: #2D4964;
@@ -12,10 +14,29 @@
   --text-color: #111;
   --text-color-invert: #fff;
   --box-shadow: 0px 3px 10px 0px rgba(131, 131, 131, 0.2);
-  /* Sizes */
+  /*
+  * Components Colors
+  */
+  /* header */
+  --header-bg-color:  #fff;
+  /* sm: side menu */
+  --sm-bg-color: var(--primary-color);
+  --sm-item-bg-color: var(--primary-color-light-1)/* normal state */;
+  --sm-item-color: var(--text-color-invert);
+  --sm-item-bg-color--active: var(--text-color-invert)/* active state */;
+  --sm-item-color--active: var(--sm-item-bg-color);
+  --sm-item-bg-color--disabled: var(--primary-color-light-1)/* disabled state */;
+  --sm-item-color--disabled: grey;
+  /* main */
+  --main-bg-color: var(--bg-light-color);
+  /* view */
+  --view-box-bg-color: #fff;
+  /*
+  * sizes
+  */
   --navbar-height: 70px;
-  --side-menu-width-stretched: 260px;
-  --side-menu-width-shrunken: 90px;
+  --sm-width-stretched: 260px;
+  --sm-width-shrunken: 90px;
 }
 
 /******************************
@@ -89,8 +110,15 @@ button {
   cursor: pointer;
 }
 
-
-i.icon {
+/*
+  although it isn't recommended to use !important,
+  but we need to get rid of the icon margins and
+  position them in the middle of their containers,
+  other wise they'll be positioned to the left of
+  their container
+*/
+.side-menu i.icon,
+.header .i.icon {
   display: flex!important;
   justify-content: center!important;
   align-items: center!important;
@@ -112,11 +140,14 @@ i.icon {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .header {
+  z-index: 9;
   width: 100%;
-  background-color: var(--bg-light-color);
+  background-color: var(--header-bg-color);
+  box-shadow: var(--box-shadow);
 }
 
 .nav {
@@ -129,9 +160,10 @@ i.icon {
 }
 
 .main {
-  height: auto;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  background-color: var(--main-bg-color);
 }
 
 
@@ -261,12 +293,12 @@ i.icon {
 *****************/
 
 .side-menu {
-  background-color: var(--primary-color);
+  background-color: var(--sm-bg-color);
   display: flex;
   flex-flow: column wrap;
   color: var(--text-color-invert);
   font-family: sans-serif;
-  min-width: var(--side-menu-width-stretched);
+  min-width: var(--sm-width-stretched);
 }
 
 .side-menu .brand,
@@ -305,7 +337,8 @@ i.icon {
   user-select: none;
   transition: background 0.3s ease,
     color 0.3s ease;
-  background-color: var(--primary-color-light-1);
+  background-color: var(--sm-item-bg-color);
+  color: var(--sm-item-color);
   margin-bottom: 8px;
   border-radius: 3px;
   border-top-right-radius: 0;
@@ -317,14 +350,14 @@ i.icon {
 .side-menu .menu-item:hover,
 .side-menu .menu-item:focus,
 .side-menu .menu-item.active {
-  background-color: var(--text-color-invert);
+  background-color: var(--sm-item-bg-color--active);
   color: var(--primary-color);
 }
 
 .side-menu .menu-item.disabled {
-  background-color: var(--primary-color-light-1);
+  background-color: var(--sm-item-bg-color--disabled);
   cursor: unset;
-  color: grey;
+  color: var(--sm-item-color--disabled);
 }
 
 .menu-item .menu-item-name {
@@ -335,8 +368,8 @@ i.icon {
 /* closed state*/
 
 .side-menu.shrunken {
-  width: var(--side-menu-width-shrunken);
-  min-width: var(--side-menu-min-width-shrunken);
+  width: var(--sm-width-shrunken);
+  min-width: var(--sm-min-width-shrunken);
 }
 
 .side-menu.shrunken .side-menu-list {
@@ -392,6 +425,7 @@ i.icon {
 
 .view {
   display: none;
+  height: 100%;
   width: 100%;
   padding: 32px 0;
 }
@@ -405,7 +439,7 @@ i.icon {
   margin: 0 auto;
   padding: 18px 16px;
   border-radius: 3px;
-  background: #fff;
+  background: var(--view-box-bg-color);
   min-height: 350px;
   box-shadow: var(--box-shadow);
   z-index: 99;

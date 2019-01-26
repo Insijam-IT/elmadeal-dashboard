@@ -8,16 +8,18 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
 
-    <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.print.css">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/b-1.5.4/r-2.2.2/datatables.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.semanticui.min.css">
+
+
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
   </head>
   <body>
     <!--[if IE]>
@@ -31,17 +33,32 @@
         <h1 class="brand-name">Elmadeal</h1>
       </div>
       <ul class="side-menu-list">
-        <li class="menu-item disabled">
+        <li class="menu-item disabled" id="view-btn-dashboard">
           <i class="chart bar outline icon"></i>
           <span class="menu-item-name">Dashboard</span>
         </li>
-        <li class="menu-item active">
+        <li class="menu-item active" id="view-btn-calendar">
           <i class="calendar outline icon"></i>
           <span class="menu-item-name">Calendar</span>
         </li>
-        <li class="menu-item">
-          <i class="user outline icon"></i>
+        <li class="menu-item" id="view-btn-clients">
+          <i class="address book outline icon"></i>
           <span class="menu-item-name">Clients</span>
+        </li>
+        </li>
+        <li class="menu-item disabled" id="view-btn-clients">
+          <i class="user outline icon"></i>
+          <span class="menu-item-name">Staff</span>
+        </li>
+        </li>
+        <li class="menu-item disabled" id="view-btn-clients">
+          <i class="cut icon"></i>
+          <span class="menu-item-name">Services</span>
+        </li>
+        </li>
+        <li class="menu-item disabled" id="view-btn-clients">
+          <i class="cogs icon"></i>
+          <span class="menu-item-name">Settings</span>
         </li>
       </ul>
     </aside>
@@ -109,7 +126,7 @@
       e.src='https://www.google-analytics.com/analytics.js';
       r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
       ga('create','UA-XXXXX-X');ga('send','pageview');
-    </script>
+</script>
 
     <!-- build:js scripts/vendor.js -->
 
