@@ -137,10 +137,10 @@ button {
 
 .page-wrapper {
   overflow: hidden;
-  flex-grow: 1;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
 .header {
@@ -160,6 +160,7 @@ button {
 }
 
 .main {
+  flex-grow: 1;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -167,23 +168,23 @@ button {
 }
 
 
-.page-wrapper {
+.scroller {
   overflow-y: auto;
   /* Only in Mozilla */
   scrollbar-color: #666 #F5F5F5;
   scrollbar-width: thin;
 }
 
-.page-wrapper::-webkit-scrollbar {
+.scroller::-webkit-scrollbar {
   width: 5px;
   height: 18px;
 }
 
-.page-wrapper::-webkit-scrollbar-track {
+.scroller::-webkit-scrollbar-track {
   background: #F5F5F5;
 }
 
-.page-wrapper::-webkit-scrollbar-thumb {
+.scroller::-webkit-scrollbar-thumb {
   background: #666;
 }
 
@@ -369,7 +370,7 @@ button {
 
 .side-menu.shrunken {
   width: var(--sm-width-shrunken);
-  min-width: var(--sm-min-width-shrunken);
+  min-width: var(--sm-width-shrunken);
 }
 
 .side-menu.shrunken .side-menu-list {
@@ -425,7 +426,6 @@ button {
 
 .view {
   display: none;
-  height: 100%;
   width: 100%;
   padding: 32px 0;
 }
